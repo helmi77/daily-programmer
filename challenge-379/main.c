@@ -6,12 +6,12 @@ int main(int argc, char *argv[])
 {
     taxtable *table = init_table();
 
-    char *brackets_path = argv[2];
+    char *brackets_path = argv[1];
     parse_brackets(table, brackets_path);
 
-    double income = atof(argv[1]);
-    double tax = calculate_tax(table, income);
-    printf("Income: %f, Tax: %f\n", income, tax);
+    double tax = atof(argv[2]);
+    double income = calculate_income(table, tax);
+    printf("Tax: %.2f, Income: %.2f", tax, income);
 
     free_table(table);
     return EXIT_SUCCESS;
